@@ -36,11 +36,12 @@ def convert_moodle_to_evalbox(
 
     file_basename = basename(file_path)
     secho(f"✅ Working with {file_basename}...", fg=colors.GREEN)
-    output_filename = f"{file_basename[0:-4]}.txt"
+    quiz_name = file_basename[0:-4]
+    output_filename = f"{quiz_name}.txt"
 
     moodle_quiz = read_xml_file(file_path)
     questions = extract_quiz_from_quiz_object(moodle_quiz)
-    evalbox_txt = generate_evalbox_txt(questions=questions)
+    evalbox_txt = generate_evalbox_txt(questions=questions, quiz_name=quiz_name)
     if display:
         evalbox_txt
 

@@ -41,17 +41,17 @@ questions = [
 
 
 def test_generate_evalbox_txt():
-    generated_txt = generate_evalbox_txt(questions=questions)
+    generated_txt = generate_evalbox_txt(questions=questions, quiz_name="test_quiz")
     assert generated_txt == (
         "First question is here\n"
         "- First answer\n"
         "- Second answer\n"
         "+ Third and good one answer\n"
-        "====\n"
+        "==== test_quiz\n"
         "Hey, this is another question\n"
         "+ OK, so this is a valid answer\n"
         "+ And here is another valid answer\n"
         "- Wrong\n"
         "- Try again\n"
-        "====\n"
+        "==== test_quiz\n"
     )
